@@ -16,7 +16,7 @@
         $.connection.hub.start().done(initialize);
 
         function initialize() {
-            $('textarea').change(broadcastQuestion);
+            $('textarea').keyup(broadcastQuestion);
         }
 
         function broadcastQuestion() {

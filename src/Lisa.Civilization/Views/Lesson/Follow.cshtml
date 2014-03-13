@@ -4,4 +4,22 @@
     ViewBag.Title = "Follow";
 }
 
-<h2>@Model.Question</h2>
+<h2 id="question">@Model.Question</h2>
+
+@section scripts
+{
+    <script src="/Scripts/jquery.signalR-2.0.2.min.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <script>
+        var hub = $.connection.lessonHub;
+
+        hub.client.updateQuestion = function(question) {
+            $('#question').text(question);
+        }
+
+        $.connection.hub.start();
+
+        
+    </script>
+}

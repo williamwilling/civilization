@@ -10,6 +10,8 @@ namespace Lisa.Civilization.Hubs
             var lesson = db.Lessons.Find(lessonId);
             lesson.Question = question;
             db.SaveChanges();
+
+            Clients.Others.UpdateQuestion(question);
         }
 
         private CivilizationDb db = new CivilizationDb();
