@@ -20,7 +20,8 @@ namespace Lisa.Civilization.Controllers
 
         public ActionResult Cast(string id)
         {
-            return View();
+            var lesson = db.Lessons.Find(id);
+            return View(lesson);
         }
 
         private CivilizationDb db = new CivilizationDb();

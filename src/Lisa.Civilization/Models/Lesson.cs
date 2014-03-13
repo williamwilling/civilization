@@ -13,5 +13,11 @@
             get;
             set;
         }
+
+        public string Question
+        {
+            get;
+            set;
+        }
     }
 }

@@ -1,5 +1,27 @@
-﻿@{
+﻿@model Lisa.Civilization.Models.Lesson
+
+@{
     ViewBag.Title = "Cast";
 }
 
 <textarea></textarea>
+
+@section scripts
+{
+    <script src="/Scripts/jquery.signalR-2.0.2.min.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <script>
+        var hub = $.connection.lessonHub;
+        $.connection.hub.start().done(initialize);
+
+        function initialize() {
+            $('textarea').change(broadcastQuestion);
+        }
+
+        function broadcastQuestion() {
+            var question = $('textarea').val();
+            hub.server.updateQuestion('@Model.Id', question);
+        }
+    </script>
+}
