@@ -24,6 +24,12 @@ namespace Lisa.Civilization.Controllers
             return View(lesson);
         }
 
+        public ActionResult Follow(string id)
+        {
+            var lesson = db.Lessons.Find(id);
+            return View(lesson);
+        }
+
         private CivilizationDb db = new CivilizationDb();
     }
 }
