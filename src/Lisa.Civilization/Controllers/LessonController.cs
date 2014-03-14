@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Lisa.Civilization.ViewModels;
 using Lisa.Civilization.Models;
 
 namespace Lisa.Civilization.Controllers
@@ -22,6 +23,22 @@ namespace Lisa.Civilization.Controllers
         {
             var lesson = db.Lessons.Find(id);
             return View(lesson);
+        }
+
+        public ActionResult Join()
+        {
+            return View(new JoinLessonViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Join(JoinLessonViewModel form)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(form);
+            }
+
+            return RedirectToAction("Follow", new { lessonId = form.LessonId });
         }
 
         public ActionResult Follow(string id)

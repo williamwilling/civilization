@@ -1,0 +1,22 @@
+﻿@model Lisa.Civilization.ViewModels.JoinLessonViewModel
+
+@{
+    ViewBag.Title = "Join";
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.LabelFor(m => m.UserName)
+        @Html.TextBoxFor(m => m.UserName)
+    </p>
+    
+    <p>
+        @Html.LabelFor(m => m.LessonId)
+        @Html.TextBoxFor(m => m.LessonId)
+    </p>
+    
+    <p>
+        <input type="submit" value="Doorgaan">
+    </p>
+}
