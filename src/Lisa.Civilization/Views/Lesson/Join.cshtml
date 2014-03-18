@@ -1,4 +1,4 @@
-﻿@model Lisa.Civilization.ViewModels.JoinLessonViewModel
+@model Lisa.Civilization.ViewModels.JoinLessonViewModel
 
 @{
     ViewBag.Title = "Join";
@@ -6,6 +6,8 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary()
+    
     <p>
         @Html.LabelFor(m => m.UserName)
         @Html.TextBoxFor(m => m.UserName)

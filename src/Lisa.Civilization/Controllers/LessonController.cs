@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -38,7 +38,7 @@ namespace Lisa.Civilization.Controllers
                 return View(form);
             }
 
-            return RedirectToAction("Follow", new { lessonId = form.LessonId });
+            return RedirectToAction("Follow", new { id = form.LessonId });
         }
 
         public ActionResult Follow(string id)
