@@ -6,7 +6,7 @@ namespace Lisa.Civilization.ViewModels
     public class JoinLessonViewModel
     {
         [Required]
-        [Display(Name = "Gebruikersnaam")]
+        [Display]
         public string UserName
         {
             get;
@@ -14,7 +14,7 @@ namespace Lisa.Civilization.ViewModels
         }
 
         [Required]
-        [Display(Name = "Les")]
+        [Display]
         [CustomValidation(typeof(JoinLessonViewModel),  "LessonExists")]
         public string LessonId
         {
