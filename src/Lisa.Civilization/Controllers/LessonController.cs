@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Lisa.Civilization.ViewModels;
 using Lisa.Civilization.Models;
+using Microsoft.AspNet.SignalR;
+using Lisa.Civilization.Hubs;
 
 namespace Lisa.Civilization.Controllers
 {
@@ -37,6 +39,9 @@ namespace Lisa.Civilization.Controllers
             {
                 return View(form);
             }
+
+            var hub = GlobalHost.ConnectionManager.GetHubContext<LessonHub>();
+            hub.Clients.All.RegisterViewer(form.UserName);
 
             return RedirectToAction("Follow", new { id = form.LessonId });
         }

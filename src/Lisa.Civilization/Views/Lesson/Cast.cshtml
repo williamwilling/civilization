@@ -6,6 +6,9 @@
 
 <textarea>@Model.Question</textarea>
 
+<ul id="viewers">
+</ul>
+
 @section scripts
 {
     <script src="/Scripts/jquery.signalR-2.0.2.min.js"></script>
@@ -22,6 +25,10 @@
         function broadcastQuestion() {
             var question = $('textarea').val();
             hub.server.updateQuestion('@Model.Id', question);
+        }
+
+        hub.client.registerViewer = function(userName) {
+            $('#viewers').append('<li>' + userName + '</li>');
         }
     </script>
 }
